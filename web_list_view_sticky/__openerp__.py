@@ -7,7 +7,7 @@
     'description': """
 Web List View Fixed Table Header
 =================================
-* Fixed (sticky) list view table header, very helpful when dealing with many record.
+* Fixed (sticky) list view table header, very helpful when dealing with many records.
 """,
     'author': 'Andre Leander',
     'website': 'leeshienwen@gmail.com',
