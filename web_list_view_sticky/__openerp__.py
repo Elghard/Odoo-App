@@ -15,6 +15,8 @@ Web List View Fixed Table Header
     'data': [
         'views/web_list_view_sticky.xml',
     ],
+    'price': 2.0,
+    'currency': 'USD',
     'installable': True,
     'auto_install': False,
     'application': False,
