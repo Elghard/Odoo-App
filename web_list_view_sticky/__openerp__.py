@@ -1,7 +1,7 @@
 {
     'name': 'Web List View Fixed Table Header',
     'version': '1.1',
-    'category': 'Widget',
+    'category': 'Tools',
     'sequence': 15,
     'summary': 'Web List View Fixed Table Header',
     'description': """
