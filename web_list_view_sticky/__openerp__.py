@@ -1,11 +1,11 @@
 {
-    'name': 'Web List View Fixed Table Header',
+    'name': 'List View Fixed Table Header',
     'version': '1.1',
     'category': 'Tools',
     'sequence': 15,
-    'summary': 'Web List View Fixed Table Header',
+    'summary': 'List View Fixed Table Header',
     'description': """
-Web List View Fixed Table Header
+List View Fixed Table Header
 =================================
 * Fixed (sticky) list view table header, very helpful when dealing with many records.
 """,
