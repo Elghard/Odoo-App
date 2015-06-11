@@ -1,5 +1,5 @@
 {
-    'name': 'Web List View Fixed Table Header',
+    'name': 'List View Fixed Table Header',
     'version': '1.2',
     'category': 'Tools',
     'sequence': 15,
@@ -9,6 +9,8 @@ Web List View Fixed Table Header
 =================================
 * Fixed (sticky) list view table header, very helpful when dealing with many record.
 """,
+    'price' : 2.00,
+    'currency': 'USD',
     'author': 'Andre Leander',
     'website': 'leeshienwen@gmail.com',
     'depends': ['web','base'],
