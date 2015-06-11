@@ -98,6 +98,7 @@
 			if (!base.isWindowScrolling) {
 				base.$window.on('scroll.' + name + base.id, base.setPositionValues);
 				base.$window.on('resize.' + name + base.id, base.toggleHeaders);
+                base.$window.on('resize.' + name + base.id, base.updateWidth);
 			}
 			base.$scrollableArea.on('resize.' + name, base.toggleHeaders);
 			base.$scrollableArea.on('resize.' + name, base.updateWidth);
@@ -126,7 +127,7 @@
 								base.$scrollableArea.offset().top + (!isNaN(base.options.fixedOffset) ? base.options.fixedOffset : 0),
 						offset = $this.offset(),
 
-						scrollTop = base.$scrollableArea.scrollTop() + newTopOffset,
+						scrollTop = base.$scrollableArea.scrollTop(),
 						scrollLeft = base.$scrollableArea.scrollLeft(),
 
 						scrolledPastTop = base.isWindowScrolling ?
@@ -136,15 +137,15 @@
 								(offset.top + $this.height() - base.$clonedHeader.height() - (base.isWindowScrolling ? 0 : newTopOffset));
 
 					if (scrolledPastTop && notScrolledPastBottom) {
-						newLeft = offset.left - scrollLeft + base.options.leftOffset;
+                        newLeft = 0;
 						base.$originalHeader.css({
-							'position': 'fixed',
+							'position': 'absolute',
 							'margin-top': base.options.marginTop,
 							'left': newLeft,
 							'z-index': 3 // #18: opacity bug
 						});
 						base.leftOffset = newLeft;
-						base.topOffset = newTopOffset;
+						base.topOffset = scrollTop;
 						base.$clonedHeader.css('display', '');
 						if (!base.isSticky) {
 							base.isSticky = true;
@@ -173,7 +174,7 @@
 				return;
 			}
 			base.$originalHeader.css({
-				'top': base.topOffset - (base.isWindowScrolling ? 0 : winScrollTop),
+				'top': base.topOffset,
 				'left': base.leftOffset - (base.isWindowScrolling ? 0 : winScrollLeft)
 			});
 		};
