@@ -3,10 +3,7 @@
 Changelog
 =========
 
-`trunk (saas-2)`
-----------------
-
- - ``mail.compose.message``: added support of ``mail_server_id`` from template
- - Server action update
-
-  - added `email` server action type, now entirely based on email templates.
+`Ver 1.2`
+---------
+ - Fix Bug Horizontal Scroll when resize window
+ - Fix Bug Top Property Unidentified
