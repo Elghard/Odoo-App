@@ -9,8 +9,6 @@ Web List View Fixed Table Header
 =================================
 * Fixed (sticky) list view table header, very helpful when dealing with many record.
 """,
-    'price' : 2.00,
-    'currency': 'USD',
     'author': 'Andre Leander',
     'website': 'leeshienwen@gmail.com',
     'depends': ['web','base'],
