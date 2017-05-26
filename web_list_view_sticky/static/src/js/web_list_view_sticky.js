@@ -1,20 +1,32 @@
-openerp.web_list_view_sticky = function (instance) {
-    var _t = instance.web._t,
-        _lt = instance.web._lt;
-    var QWeb = instance.web.qweb;
+odoo.define('web.StickyTableHeader', function (require) {
+    "use strict";
 
-    //Sticky Table Header
-    instance.web.ListView.include({
+    var core = require('web.core');
+    var ListView = require('web.ListView');
+
+    var _t = core._t;
+
+    var StickyTableHeader = ListView.include({
         load_list: function () {
             var self = this;
-            self._super.apply(this, arguments);
-            var one2many_length = self.$el.parents('.oe_form_field.oe_form_field_one2many').length;
-            var scrollArea = self.$el.parents('.oe_view_manager.oe_view_manager_current').find('.oe_view_manager_wrapper .oe_view_manager_body')[0];
-            if(scrollArea &&  one2many_length == 0){
-                self.$el.find('table.oe_list_content').each(function(){
-                    $(this).stickyTableHeaders({scrollableArea: scrollArea})
+            var result = self._super.apply(this, arguments);
+
+            //scroll top to make sure the header displayed correctly, when the scroll bar position at the middle.
+            $('.o_content').scrollTop(0);
+
+            //resize window also need to scroll top, as the plugin will repaint the header.
+            $(window).on('resize', function () {
+                $('.o_content').scrollTop(0);
+            });
+            var scrollArea = self.$el.find('div.table-responsive')[0];
+            if (scrollArea) {
+                self.$el.find('table.o_list_view').each(function () {
+                    //if set the fixedOffset as 0, this plugin will not work. Set it to a smaller value so that the gap is lighter before the header. 
+                    $(this).stickyTableHeaders({ scrollableArea: scrollArea, leftOffset: scrollArea, fixedOffset: 0.01 })
                 });
             }
+            return result;
         },
     });
-};
+});
+
