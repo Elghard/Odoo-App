@@ -20,10 +20,10 @@ odoo.define('web.StickyTableHeader', function (require) {
             });
             var scrollArea = self.$el.find('div.table-responsive')[0];
             if (scrollArea) {
-                self.$el.find('table.o_list_view').each(function () {
-                    //if set the fixedOffset as 0, this plugin will not work. Set it to a smaller value so that the gap is lighter before the header. 
-                    $(this).stickyTableHeaders({ scrollableArea: scrollArea, leftOffset: scrollArea, fixedOffset: 0.01 })
-                });
+                var form = self.$el.parents('.o_form_view')[0]
+                if (form === undefined) {
+                    self.$el.find('table.o_list_view').stickyTableHeaders({ scrollableArea: scrollArea, leftOffset: scrollArea, fixedOffset: 0.01 })
+                }
             }
             return result;
         },
